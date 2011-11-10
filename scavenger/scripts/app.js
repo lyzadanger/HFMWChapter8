@@ -12,8 +12,7 @@ $(document).ready(function() {
     }
 
     var captureError = function(error) {
-      var msg = 'An error occurred during capture: ' + error.code;
-      navigator.notification.alert(msg, null, 'Error'); 
+      console.log(error);
     };
 
     var captureImage = function() {
