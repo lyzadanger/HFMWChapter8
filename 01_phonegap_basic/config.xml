@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.cloudfour.chapter8"
+	version 	= "1.0.0">
+
+	<name>Chapter 8</name>
+
+	<icon src="images/icon.png" height="48" width="48" gap:role="default" />
+	<gap:splash src="images/splash.png" />
+</widget>
