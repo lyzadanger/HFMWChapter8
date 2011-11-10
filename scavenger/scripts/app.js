@@ -20,7 +20,7 @@ $(document).ready(function() {
       navigator.device.capture.captureImage(captureSuccess, captureError, {limit: 1});
     };
 
-    $('#camera').click(captureImage);
+    $('#camera').on('click', captureImage);
 
   }, false);
 });
