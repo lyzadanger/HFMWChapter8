@@ -8,7 +8,7 @@ $(document).ready(function() {
   document.addEventListener("deviceready", function() {
     
     var captureSuccess = function(mediaFiles) {
-      navigator.notification.alert('Success!', null, 'Success');
+      var path = mediaFiles[0].fullPath;
     }
 
     var captureError = function(error) {
