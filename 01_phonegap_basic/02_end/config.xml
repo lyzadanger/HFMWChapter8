@@ -3,13 +3,10 @@
 	xmlns:gap	= "http://phonegap.com/ns/1.0"
 	id		= "com.hfmw.tartanhunt"
 	version 	= "1.0.0">
-
 	<name>Tartan Hunt</name>
-
-	<description>
-		A companion application for the Scottish Celebration: win a trip for 2 to Edinburgh from Loch Air!
-	</description>
-
+	
+	<description>A companion application for the Scottish Celebration: win a trip for 2 to Edinburgh from Loch Air!</description>
+	
 	<author href="http://www.hf-mw.com"
 		email="help@hf-mw.com">
 		Lyza Gardner and Jason Grigsby
@@ -22,10 +19,4 @@
 		<gap:platform name="blackberry" project="widgets"/>
 	</gap:platforms>
 
-
-	<feature name="http://api.phonegap.com/1.0/camera"/>
-	<feature name="http://api.phonegap.com/1.0/file"/>
-
-	<!-- sample preference specification -->
-	<!-- <preference name="autorotate" value="false" readonly="true"/> -->
 </widget>
