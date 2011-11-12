@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.hfmw.tartanhunt"
+	version 	= "1.0.0">
+	<name>Tartan Hunt</name>
+	
+	<description>A companion application for the Scottish Celebration: win a trip for 2 to Edinburgh from Loch Air!</description>
+	
+	<author href="http://www.hf-mw.com"
+		email="help@hf-mw.com">
+		Lyza Gardner and Jason Grigsby
+	</author>
+
+	<gap:platforms>
+		<gap:platform name="android" minVersion="2.1" />
+		<gap:platform name="webos" />
+		<gap:platform name="symbian.wrt" />
+		<gap:platform name="blackberry" project="widgets"/>
+	</gap:platforms>
+
+	<icon src="images/touch-icon-iphone4.png" height="114" width="114" />
+	<icon src="images/touch-icon-ipad.png" height="72" width="72" />
+	<icon src="images/touch-icon-iphone.png" height="57" width="57" />
+	<icon src="images/icon-48.png" height="48" width="48" />
+	<icon src="images/icon-36.png" height="36" width="36" />
+  
+	<gap:splash src="images/splash.png" />
+</widget>
