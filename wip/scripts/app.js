@@ -10,7 +10,6 @@
       addResetButton();
       $('#booths').live('pageshow', function() {
         refreshTartans();
-        tartansBuilt = true;
       }).trigger('pageshow'); // Trigger once now...
     }
   };
@@ -20,8 +19,7 @@
     document.addEventListener('deviceready', initImageCapture, false);
     //initImageCapture(); // TURN ME OFF WHEN BUILDING!!!!!!!!
   };
-  
-  // Set up stuff for browser that support image capture
+
   function initImageCapture() {
     imageCaptureSupported = true;
     $('.foundTartan').html('Snap Photo of Tartan!');
@@ -62,7 +60,7 @@
       navigator.device.capture.captureImage(function(mediaFiles) {
         var path = mediaFiles[0].fullPath;
         localStorage.setItem(tartanKey, path);
-        showTartanImage(path, $tartanList);
+        showTartanImage(tartanKey, $tartanList);
         $tartanList.listview('refresh');
       }, captureError, {limit:1});
     } else {
@@ -74,19 +72,17 @@
   
   showTartanImage = function(tartanKey, $listElement) {
     var path = localStorage.getItem(tartanKey);
-    path = 'images/douglas_green.png';
     if ($listElement.find('.tartanImage').length || !path || path == 'true') { return; };
     var $tartanHolder = $('<p></p>').append($('<img>').attr({
       'src'     : path,
       'class'   : 'tartanImage'
     })); 
     var $tartanElement = $('<li></li>').append($tartanHolder);
-    $listElement.append('<li data-role="list-divider">My Photo</li>');
+    $listElement.append('<li data-role="list-divider">My Photo of the Tartan!</li>');
     $listElement.append($tartanElement);
   };
 
   captureError = function(error) {
-    // do something with error
     console.log(error);
   }
 
