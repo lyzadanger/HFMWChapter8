@@ -1,6 +1,8 @@
 (function() {
+  var imageCaptureSupported = false;
   $(document).bind("mobileinit", function() { // no transitions: for performance
     $.extend($.mobile, { defaultPageTransition: 'none' });
+    $.mobile.page.prototype.options.addBackBtn = true;
   });
   
   goTartans = function() {
@@ -8,15 +10,23 @@
       addResetButton();
       $('#booths').live('pageshow', function() {
         refreshTartans();
+        tartansBuilt = true;
       }).trigger('pageshow'); // Trigger once now...
     }
   };
-  
+
   initDevice = function() {
-    //document.addEventListener('deviceready', onDeviceReady, false);
-    goTartans();     // Remove me later
+    goTartans();
+    document.addEventListener('deviceready', initImageCapture, false);
+    //initImageCapture(); // TURN ME OFF WHEN BUILDING!!!!!!!!
   };
   
+  // Set up stuff for browser that support image capture
+  function initImageCapture() {
+    imageCaptureSupported = true;
+    $('.foundTartan').html('Snap Photo of Tartan!');
+  }
+
   refreshTartans = function() {
     $('ul.details').each(function() {
       var el_id     = $(this).attr('id');
@@ -24,11 +34,13 @@
       if (!isFound(tartanKey) && !($('#' + tartanKey).length)) {
         var $tartanButton = $('<a></a>').attr({
           'data-role'   : 'button',
-          'id'          : tartanKey
+          'id'          : tartanKey,
+          'class'       : 'foundTartan'
         }).html('I found it!').click(tartanFound); // I found it button
         var $buttonHolder = $('<li></li>').append($tartanButton).appendTo($(this)); 
       } else if (isFound(tartanKey)) {
         $('#vendor-' + el_id).addClass('found');
+        showTartanImage(tartanKey, $(this));
       }
     });
   };
@@ -42,13 +54,40 @@
   };
   
   tartanFound = function(event) { // Click handler for 'found it' button
-    addFound($(event.currentTarget).attr('id'));
+    var $tartanButton = $(event.currentTarget);
+    var tartanKey = $tartanButton.attr('id');
+    var $tartanList = $tartanButton.closest('ul');
+    
+    if(imageCaptureSupported) {
+      navigator.device.capture.captureImage(function(mediaFiles) {
+        var path = mediaFiles[0].fullPath;
+        localStorage.setItem(tartanKey, path);
+        showTartanImage(path, $tartanList);
+        $tartanList.listview('refresh');
+      }, captureError, {limit:1});
+    } else {
+      localStorage.setItem(tartanKey, 'true');
+    }
+    
     $(event.target).closest('li').remove(); // Bye-bye button
   };
+  
+  showTartanImage = function(tartanKey, $listElement) {
+    var path = localStorage.getItem(tartanKey);
+    path = 'images/douglas_green.png';
+    if ($listElement.find('.tartanImage').length || !path || path == 'true') { return; };
+    var $tartanHolder = $('<p></p>').append($('<img>').attr({
+      'src'     : path,
+      'class'   : 'tartanImage'
+    })); 
+    var $tartanElement = $('<li></li>').append($tartanHolder);
+    $listElement.append('<li data-role="list-divider">My Photo</li>');
+    $listElement.append($tartanElement);
+  };
 
-  addFound = function(tartanKey) {
-    localStorage.setItem(tartanKey, 'true');
-    $.mobile.changePage(''); // Go back to the landing "page"
+  captureError = function(error) {
+    // do something with error
+    console.log(error);
   }
 
   isFound = function(tartanKey) { return localStorage.getItem(tartanKey) || false; };
