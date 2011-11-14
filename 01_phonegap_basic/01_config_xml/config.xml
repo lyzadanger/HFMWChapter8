@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= ""
+	version 	= "1.0.0">
+	<name>Tartan Hunt</name>
+	
+	<description></description>
+	
+	<author href=""
+		email="">
+		
+	</author>
+	<icon src="images/touch-icon-iphone4.png" height="114" width="114" />
+
+</widget>

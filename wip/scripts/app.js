@@ -4,51 +4,35 @@
     $.extend($.mobile, { defaultPageTransition: 'none' });
     $.mobile.page.prototype.options.addBackBtn = true;
   });
-  
-  goTartans = function() {
-    if (typeof(window.localStorage == 'object')) { // Browser supports localStorage
-      addResetButton();
-      $('#booths').live('pageshow', function() {
-        refreshTartans();
-      }).trigger('pageshow'); // Trigger once now...
-    }
-  };
-
-  initDevice = function() {
-    goTartans();
-    document.addEventListener('deviceready', initImageCapture, false);
-    //initImageCapture(); // TURN ME OFF WHEN BUILDING!!!!!!!!
-  };
 
   function initImageCapture() {
+    // TODO: Check for navigator.device.capture first
     imageCaptureSupported = true;
     $('.foundTartan').html('Snap Photo of Tartan!');
   }
+
+  initDevice = function() {
+    if (typeof(window.localStorage == 'object')) { // Browser supports localStorage
+      addResetButton();
+      $('.foundTartan').click(tartanFound);
+      $('#booths').live('pageshow', function() { refreshTartans(); });
+      refreshTartans(); // Trigger once now...
+    }
+    document.addEventListener('deviceready', initImageCapture, false);
+  };
+  $(document).ready(initDevice);
 
   refreshTartans = function() {
     $('ul.details').each(function() {
       var el_id     = $(this).attr('id');
       var tartanKey = 'found-' + el_id;
-      if (!isFound(tartanKey) && !($('#' + tartanKey).length)) {
-        var $tartanButton = $('<a></a>').attr({
-          'data-role'   : 'button',
-          'id'          : tartanKey,
-          'class'       : 'foundTartan'
-        }).html('I found it!').click(tartanFound); // I found it button
-        var $buttonHolder = $('<li></li>').append($tartanButton).appendTo($(this)); 
-      } else if (isFound(tartanKey)) {
+      if (isFound(tartanKey)) {
         $('#vendor-' + el_id).addClass('found');
+        $('[data-url*="' + el_id + '"]').addClass('found');
         showTartanImage(tartanKey, $(this));
+        $('#' + tartanKey).closest('li').hide();
       }
     });
-  };
-  
-  addResetButton = function() {
-    var $resetButton = $('<a></a>').attr({
-      'id'        : 'resetButton',
-      'data-role' : 'button'
-    }).html('Start Over!').click(resetTartans);
-    $('#booths').append($resetButton);
   };
   
   tartanFound = function(event) { // Click handler for 'found it' button
@@ -62,12 +46,12 @@
         localStorage.setItem(tartanKey, path);
         showTartanImage(tartanKey, $tartanList);
         $tartanList.listview('refresh');
+        $(event.target).closest('li').remove(); // Bye-bye button
       }, captureError, {limit:1});
     } else {
       localStorage.setItem(tartanKey, 'true');
+      $(event.target).closest('li').hide(); // Bye-bye button
     }
-    
-    $(event.target).closest('li').remove(); // Bye-bye button
   };
   
   showTartanImage = function(tartanKey, $listElement) {
@@ -82,15 +66,20 @@
     $listElement.append($tartanElement);
   };
 
-  captureError = function(error) {
-    console.log(error);
-  }
+  captureError = function(error) { console.log(error);  } // TODO 
 
   isFound = function(tartanKey) { return localStorage.getItem(tartanKey) || false; };
+
+  addResetButton = function() {
+    var $resetButton = $('<a></a>').attr({
+      'id'        : 'resetButton',
+      'data-role' : 'button'
+    }).html('Start Over!').click(resetTartans);
+    $('#booths').append($resetButton);
+  };
   
   resetTartans = function() {
     localStorage.clear();
     window.location.reload();
   };
-  $(document).ready(initDevice);
 })();
