@@ -6,17 +6,17 @@
   });
 
   function initImageCapture() {
-    // TODO: Check for navigator.device.capture first
+    if (!navigator.device || !navigator.device.capture) { return; }
     imageCaptureSupported = true;
     $('.foundTartan').html('Snap Photo of Tartan!');
   }
 
   initDevice = function() {
     if (typeof(window.localStorage == 'object')) { // Browser supports localStorage
-      addResetButton();
       $('.foundTartan').click(tartanFound);
       $('#booths').live('pageshow', function() { refreshTartans(); });
       refreshTartans(); // Trigger once now...
+      addResetButton();
     }
     document.addEventListener('deviceready', initImageCapture, false);
   };
@@ -40,20 +40,18 @@
   
   tartanFound = function(event) { // Click handler for 'found it' button
     var $tartanButton = $(event.currentTarget);
-    var tartanKey = $tartanButton.attr('id');
-    var $tartanList = $tartanButton.closest('ul');
+    var tartanKey     = $tartanButton.attr('id');
     localStorage.setItem(tartanKey, 'true');
     if(imageCaptureSupported) {
       navigator.device.capture.captureImage(function(mediaFiles) {
-        var path = mediaFiles[0].fullPath;
-        localStorage.setItem(tartanKey, path);
+        localStorage.setItem(tartanKey, mediaFiles[0].fullPath);
       }, captureError, {limit:1});
     }
     refreshTartans();
   };
   
   showTartanImage = function(tartanKey, $listElement) {
-    var path = localStorage.getItem(tartanKey);
+    var path      = localStorage.getItem(tartanKey);
     if ($listElement.find('.tartanImage').length || !path || path == 'true') { return; };
     var $tartanHolder = $('<p></p>').append($('<img>').attr({
       'src'     : path,
@@ -68,11 +66,8 @@
   isFound = function(tartanKey) { return localStorage.getItem(tartanKey) || false; };
 
   addResetButton = function() {
-    var $resetButton = $('<a></a>').attr({
-      'id'        : 'resetButton',
-      'data-role' : 'button'
-    }).html('Start Over!').click(resetTartans);
-    $('#booths').append($resetButton);
+    var $resetButton = $('<a></a>').attr('data-role','button').html('Start Over!');
+    $resetButton.click(resetTartans).appendTo($('#booths'));
   };
   
   resetTartans = function() {
