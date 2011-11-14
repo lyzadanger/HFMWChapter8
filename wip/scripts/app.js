@@ -33,25 +33,23 @@
         $('#' + tartanKey).closest('li').hide();
       }
     });
+    if ($('#vendors').data('listview')) {
+      $('#vendors').listview('refresh');
+    }    
   };
   
   tartanFound = function(event) { // Click handler for 'found it' button
     var $tartanButton = $(event.currentTarget);
     var tartanKey = $tartanButton.attr('id');
     var $tartanList = $tartanButton.closest('ul');
-    
+    localStorage.setItem(tartanKey, 'true');
     if(imageCaptureSupported) {
       navigator.device.capture.captureImage(function(mediaFiles) {
         var path = mediaFiles[0].fullPath;
         localStorage.setItem(tartanKey, path);
-        showTartanImage(tartanKey, $tartanList);
-        $tartanList.listview('refresh');
-        $(event.target).closest('li').remove(); // Bye-bye button
       }, captureError, {limit:1});
-    } else {
-      localStorage.setItem(tartanKey, 'true');
-      $(event.target).closest('li').hide(); // Bye-bye button
     }
+    refreshTartans();
   };
   
   showTartanImage = function(tartanKey, $listElement) {
@@ -67,7 +65,6 @@
   };
 
   captureError = function(error) { console.log(error);  } // TODO 
-
   isFound = function(tartanKey) { return localStorage.getItem(tartanKey) || false; };
 
   addResetButton = function() {
