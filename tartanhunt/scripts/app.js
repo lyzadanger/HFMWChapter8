@@ -45,9 +45,11 @@
     if(imageCaptureSupported) {
       navigator.device.capture.captureImage(function(mediaFiles) {
         localStorage.setItem(tartanKey, mediaFiles[0].fullPath);
+        refreshTartans();
       }, captureError, {limit:1});
     }
-    refreshTartans();
+    else { refreshTartans(); }
+    
   };
   
   showTartanImage = function(tartanKey, $listElement) {
