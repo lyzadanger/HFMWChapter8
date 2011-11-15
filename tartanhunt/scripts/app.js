@@ -16,7 +16,6 @@
   initDevice = function() {
     if (typeof(window.localStorage == 'object')) {
       $('.foundTartan').click(tartanFound);
-      $('#booths').live('pageshow', function() { refreshTartans(); });
       refreshTartans();
       addResetButton();
     }
@@ -49,8 +48,7 @@
   };
   
   tartanFound = function(event) {
-    var $tartanButton = $(event.currentTarget);
-    var tartanKey     = $tartanButton.attr('id');
+    var tartanKey = $(event.currentTarget).attr('id');
     if(imageCaptureSupported) {
       navigator.device.capture.captureImage(function(mediaFiles) {
         localStorage.setItem(tartanKey, mediaFiles[0].fullPath);
