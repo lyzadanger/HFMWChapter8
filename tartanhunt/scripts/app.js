@@ -5,8 +5,11 @@
     $.mobile.page.prototype.options.addBackBtn = true;
   });
 
-  function initImageCapture() {
+  function initPhoneGap() {
     if (!navigator.device || !navigator.device.capture) { return; }
+    if (device.platform && device.platform == 'Android') {
+      $('[data-rel="back"]').hide();
+    }
     imageCaptureSupported = true;
     $('.foundTartan').html('Snap Photo of Tartan!');
   }
@@ -18,7 +21,7 @@
       refreshTartans(); // Trigger once now...
       addResetButton();
     }
-    document.addEventListener('deviceready', initImageCapture, false);
+    document.addEventListener('deviceready', initPhoneGap, false);
   };
   $(document).ready(initDevice);
 
