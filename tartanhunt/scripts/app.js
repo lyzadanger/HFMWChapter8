@@ -33,23 +33,26 @@
         $('#' + tartanKey).closest('li').hide();
       }
     });
-    if ($('#vendors').data('listview')) {
-      $('#vendors').listview('refresh');
-    }    
+    $('ul').each(function() {
+      if ($(this).data('listview')) {
+        $(this).listview('refresh');
+      }
+    });
   };
   
   tartanFound = function(event) { // Click handler for 'found it' button
     var $tartanButton = $(event.currentTarget);
     var tartanKey     = $tartanButton.attr('id');
-    localStorage.setItem(tartanKey, 'true');
     if(imageCaptureSupported) {
       navigator.device.capture.captureImage(function(mediaFiles) {
         localStorage.setItem(tartanKey, mediaFiles[0].fullPath);
         refreshTartans();
       }, captureError, {limit:1});
     }
-    else { refreshTartans(); }
-    
+    else { 
+      localStorage.setItem(tartanKey, 'true');
+      refreshTartans(); 
+    }
   };
   
   showTartanImage = function(tartanKey, $listElement) {
@@ -64,7 +67,7 @@
     $listElement.append($tartanElement);
   };
 
-  captureError = function(error) { console.log(error);  } // TODO 
+  captureError = function(error) { console.log(error);  }
   isFound = function(tartanKey) { return localStorage.getItem(tartanKey) || false; };
 
   addResetButton = function() {
