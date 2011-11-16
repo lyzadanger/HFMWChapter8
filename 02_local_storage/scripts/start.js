@@ -8,10 +8,6 @@
 
   };
   $(document).ready(initDevice);
-
-  refreshTartans = function() {
-  
-  };
   
   tartanFound = function(event) {
 

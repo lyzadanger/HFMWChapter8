@@ -15,14 +15,14 @@
 
   refreshTartans = function() {
     $('ul.details').each(function() {
-      var myID      = $(this).attr('id');
-      var tartanKey = 'found-' + myID;
-      var isFound   = localStorage.getItem(tartanKey);
-      if (isFound) {
-        $('#vendor-'+ myID).add($('[data-url*="'+ myID +'"]')).addClass('found');
-        $('#' + tartanKey).closest('li').hide();
-      }
-    });
+      var myID         = $(this).attr('id');
+      var tartanKey    = 'found-' + myID;
+      var foundValue   = localStorage.getItem(tartanKey);
+      var isFound      = Boolean (foundValue);
+      $('#vendor-'+ myID).toggleClass('found', isFound);
+      $('[data-url*="'+ myID +'"]').toggleClass('found', isFound);
+      $('#'+tartanKey).closest('li').toggle(!isFound);
+    }
     $('ul').each(function() {
       if ($(this).data('listview')) { $(this).listview('refresh'); }
     });
@@ -38,7 +38,7 @@
     var $resetButton = $('<a></a>').attr('data-role','button').html('Start Over!');
     $resetButton.click(function() {
       localStorage.clear();
-      window.location.reload();
+      refreshTartans();
     });
     $resetButton.appendTo($('#booths'));
   };

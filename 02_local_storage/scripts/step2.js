@@ -7,23 +7,21 @@
   initDevice = function() {
     if (typeof(window.localStorage == 'object')) {
       $('.foundTartan').click(tartanFound);
-      refreshTartans();
       addResetButton();
     }
   };
   $(document).ready(initDevice);
-
-  refreshTartans = function() {
-
-  };
   
   tartanFound = function(event) {
     var tartanKey = $(event.currentTarget).attr('id');
     localStorage.setItem(tartanKey, 'true');
-    refreshTartans(); 
   };
 
   addResetButton = function() {
-
+    var $resetButton = $('<a></a>').attr('data-role','button').html('Start Over!');
+    $resetButton.click(function() {
+      localStorage.clear();
+    });
+    $resetButton.appendTo($('#booths'));
   };
 })();
