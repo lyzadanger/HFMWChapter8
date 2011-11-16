@@ -30,3 +30,4 @@ li.found, a.foundTartan {
 a.foundTartan.ui-btn-corner-all, .ui-btn-icon-right a.foundTartan .ui-btn-corner-all {border-radius:0.5em}
 .ui-li-has-arrow .ui-btn-inner a.foundTartan.ui-link-inherit {padding:0}
 .ui-btn-icon-right a.foundTartan .ui-btn-inner {padding:0.7em 0}
+body.android .ui-header .ui-btn[data-rel="back"] { display: none; }

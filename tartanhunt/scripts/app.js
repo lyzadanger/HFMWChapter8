@@ -8,7 +8,7 @@
   function initPhoneGap() {
     if (!navigator.device || !navigator.device.capture) { return; }
     if (device.platform && device.platform == 'Android') {
-      $('[data-rel="back"]').hide();
+      $('body').addClass('android'); // Will hide back button
     }
     imageCaptureSupported = true;
   }
