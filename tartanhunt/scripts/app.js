@@ -7,11 +7,11 @@
 
   function initPhoneGap() {
     if (!navigator.device || !navigator.device.capture) { return; }
+    imageCaptureSupported = true;
     if (device.platform && device.platform == 'Android') {
       $('body').addClass('android'); // Will hide back button
     }
-    imageCaptureSupported = true;
-  }
+  };
   
   initDevice = function() {
     if (typeof(window.localStorage == 'object')) {
@@ -36,7 +36,7 @@
       if (hasPhoto) {
         if (!$(this).find('.tartanImage').length) {
           var $tartanHolder = $('<p></p>').append($('<img>').attr({
-            'src'     : isFound,
+            'src'     : foundValue,
             'class'   : 'tartanImage'
           })); 
           $(this).append('<li data-role="list-divider">My Photo of the Tartan!</li>');
