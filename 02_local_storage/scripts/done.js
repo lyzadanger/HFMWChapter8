@@ -22,7 +22,7 @@
       $('#vendor-'+ myID).toggleClass('found', isFound);
       $('[data-url*="'+ myID +'"]').toggleClass('found', isFound);
       $('#'+tartanKey).closest('li').toggle(!isFound);
-    }
+    });
     $('ul').each(function() {
       if ($(this).data('listview')) { $(this).listview('refresh'); }
     });

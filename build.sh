@@ -12,7 +12,7 @@ mkdir chapter8/extras
 mkdir chapter8/extras/images
 mkdir chapter8/extras/scripts
 cp 02_local_storage/scripts/done.js chapter8/extras/scripts/app.localStorage.js
-cp tartanhunt/scripts/app.js chapter8/extras/scripts/final.js
+cp tartanhunt/scripts/app.js chapter8/extras/scripts/app.final.js
 mv chapter8/images/splash* chapter8/extras/images
 
 zip -qr chapter8.zip chapter8
