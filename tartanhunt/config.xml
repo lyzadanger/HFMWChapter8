@@ -26,6 +26,7 @@
 	<icon src="images/icon-36.png" height="36" width="36" />
   
   <preference name="orientation" value="portrait" />
+  <feature name="http://api.phonegap.com/1.0/camera" />
 
 	<gap:splash src="images/splash2x.png" width="640" height="960" />
 	<gap:splash src="images/splash.png" width="320" height="480" />
