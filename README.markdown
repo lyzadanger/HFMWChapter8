@@ -1,15 +1,16 @@
+Title:  Chapter 8: HFMW  
+Author: Lyza Danger Gardner, Jason Grigsby  
+
 *Head First Mobile Web*
 =======================
-## by Lyza Danger Gardner and Jason Grigsby
-### Published by O'Reilly Media
+### by Lyza Danger Gardner and Jason Grigsby
+#### Published by O'Reilly Media
 
-Chapter 8
----------
-### Hybrid Mobile Web apps with PhoneGap Build
+## Chapter 8: Hybrid Mobile Web apps with PhoneGap Build
 
 The directories here that begin with numerals represent subsequent steps as the learner moves through the chapter exercises.
 
-#### How to Use: Chapter ZIP file or `chapter8` directory on <http://hf-mw.com> (normal mode)
+#### How to Use: Chapter ZIP file or `chapter8` directory on <http://hf-mw.com/ch8> (normal mode)
 Everything you need for completing the exercises in the chapter is contained in the `chapter8.zip` file, which is an archive of the `chapter8` directory.
 
 #### How to Use: Build from repo source (expert mode)
