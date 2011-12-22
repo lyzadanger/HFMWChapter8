@@ -18,7 +18,7 @@
   
   initDevice = function() {
     // If browser supports localStorage
-    if (typeof(window.localStorage == 'object')) {
+    if (typeof(window.localStorage) == 'object') {
       // Add click handler for "I found it!" button
       $('.foundTartan').click(tartanFound);
       refreshTartans();

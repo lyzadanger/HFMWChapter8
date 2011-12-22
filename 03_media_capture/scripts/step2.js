@@ -14,7 +14,7 @@
   };
   
   initDevice = function() {
-    if (typeof(window.localStorage == 'object')) {
+    if (typeof(window.localStorage) == 'object') {
       $('.foundTartan').click(tartanFound);
       refreshTartans();
       addResetButton();
