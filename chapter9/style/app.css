@@ -1,0 +1,33 @@
+li.found, a.foundTartan { 
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#86ce81),to(#63b05d));
+  background-image: -webkit-linear-gradient(top,#86ce81,#63b05d);
+  background-image: -moz-linear-gradient(top,#86ce81,#63b05d);
+  background-image: -ms-linear-gradient(top,#86ce81,#63b05d);
+  background-image: -o-linear-gradient(top,#86ce81,#63b05d);
+  background-image: linear-gradient(top,#86ce81,#63b05d);
+ }
+.found.ui-btn-up-c {text-shadow:0 1px #93e08d}
+.found .ui-icon-arrow-r {background-position:-252px 50%}
+
+.found .ui-bar-b {
+  background-image:url(../images/check.png), -webkit-gradient(linear,left top,left bottom,from(#86ce81),to(#63b05d));
+  background-image:url(../images/check.png), -webkit-linear-gradient(top,#86ce81,#63b05d);
+  background-image:url(../images/check.png), -moz-linear-gradient(top,#86ce81,#63b05d);
+  background-image:url(../images/check.png), -ms-linear-gradient(top,#86ce81,#63b05d);
+  background-image:url(../images/check.png), -o-linear-gradient(top,#86ce81,#63b05d);
+  background-image:url(../images/check.png), linear-gradient(top,#86ce81,#63b05d);
+  background-position:96% 50%, 0 0;
+  background-repeat:no-repeat;
+  border-color:#4a9945;
+  text-shadow:0 -1px #4a9945;
+ }
+
+.tartanImage { max-width: 90%; }
+
+#vendors .ui-li .ui-btn-inner a.ui-link-inherit {padding-top:10px; padding-bottom:0; min-height:70px}
+.ui-li .ui-btn-inner a.ui-link-inherit .ui-li-heading {margin-top:0.2em}
+
+a.foundTartan.ui-btn-corner-all, .ui-btn-icon-right a.foundTartan .ui-btn-corner-all {border-radius:0.5em}
+.ui-li-has-arrow .ui-btn-inner a.foundTartan.ui-link-inherit {padding:0}
+.ui-btn-icon-right a.foundTartan .ui-btn-inner {padding:0.7em 0}
+body.android .ui-header .ui-btn[data-rel="back"] { display: none; }

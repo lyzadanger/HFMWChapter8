@@ -1,0 +1,201 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="style/jquerymobile1_0_min.css" />
+    <link rel="stylesheet" href="style/app.css" />
+    <script src="scripts/jquery1_7_min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/jquerymobile1_0_min.js"></script>
+    <title>Tartan Hunt!</title>
+  </head>
+<body>
+
+<div id="booths" data-role="page">
+      <div data-role="header">
+        <h1>Tartan Hunt!</h1>
+      </div>
+
+      <div data-role="content">
+        <div data-role="collapsible" data-collapsed="false" data-content-theme="c">
+          <h3>How to Play</h3>
+        <p>Welcome to The Scottish Celebration and the Tartan Hunt game! By playing Tartan Hunt, you could win an 5-day, all-expenses-paid trip for two to Edinburgh courtesy of Loch Air.</p>
+        <p><strong>Object of the game:</strong> Visit each of the sponsors' booths below and locate the tartan swatch shown. You'll be prompted to take a quick photo of the swatch. Once you've found all 12 tartans, go to booth C930 in Hall 5 to be entered in the drawing to win!</p>
+        </div>
+        <ul data-role="listview" data-inset="true" id="vendors">
+          <li id="vendor-cailean"><h3>C340</h3>
+          <img src="images/barclay.png" alt="Barclay" />
+          <p><strong>Cailean Networks Design</strong></p>
+          <p>Category: <strong>Data and Networking</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>4</strong></p>
+            <ul id="cailean" class="details">
+            <li><strong>Cailean Networks Design</strong></li>
+            <li>Hall <strong>4</strong>, Booth <strong>C340</strong></li>
+            <li><img src="images/barclay.png" alt="Barclay" /> Ensuring that your online application and data is available to your customers and employees is key to the success of any business. Managing potential network or server overloads as well as having a fail over plan are essential in providing a responsive, satisfying and an always available online customer experience. Call us today for a free network health evaluation.</li>
+            <li><a class="foundTartan" id="found-cailean" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+          
+          
+          <li id="vendor-eilionoir"><h3>C120</h3>
+          <img src="images/buchanan.png" alt="Buchanan" />
+          <p><strong>Eilionoir Planning, Inc</strong></p>
+          <p>Category: <strong>Urban Planning</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>3</strong></p>
+            <ul id="eilionoir" class="details">
+            <li><strong>Eilionoir Planning, Inc</strong></li>
+            <li>Hall <strong>3</strong>, Booth <strong>C120</strong></li>
+            <li><img src="images/buchanan.png" alt="Buchanan" />We are consultants, providing Development Planning and Design Services. We participate as Developers in land and building development projects.</li>
+            <li><a class="foundTartan" id="found-eilionoir" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+          
+          <li id="vendor-keir"><h3>C220</h3>
+          <img src="images/douglas_green.png" alt="Douglas Green" />
+          <p><strong>Keir Software Technologies</strong></p>
+          <p>Category: <strong>Software Development</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>2</strong></p>
+            <ul id="keir" class="details">
+            <li><strong>Keir Software Technologies</strong></li>
+            <li>Hall <strong>2</strong>, Booth <strong>C220</strong></li>
+            <li><img src="images/douglas_green.png" alt="Douglas Green" />Keir Software Technologies (KST) is a professional software development firm that wants to earn your business and become your partner. For over 35 years, KST has understood that our job is to listen to our client, understand their project and software requirements, and develop and deliver engineering solutions on time and on budget.</li>
+            <li><a class="foundTartan" id="found-keir" data-role="button">I found it!</a></li>
+          </ul>
+          </li>
+          
+          <li id="vendor-scotland-united"><h3>C460</h3>
+          <img src="images/galloway.png" alt="Galloway" />
+          <p><strong>Scotland United Financing</strong></p>
+          <p>Category: <strong>Financial Services</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>4</strong></p>
+            <ul id="scotland-united" class="details">
+            <li><strong>Scotland United Financing</strong></li>
+            <li>Hall <strong>4</strong>, Booth <strong>C460</strong></li>
+            <li><img src="images/galloway.png" alt="Galloway" />Scotland United Financing is a leading local family owned consumer finance company founded in 1857, and operating 24 branches across Scotland. We offer consumer loans for autos, debt consolidation, and other borrowing needs.</li>
+            <li><a class="foundTartan" id="found-scotland-united" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+          
+          <li id="vendor-attack"><h3>C170</h3>
+          <img src="images/morgan.png" alt="Morgan" />
+          <p><strong>Tartan Attack!</strong></p>
+          <p>Category: <strong>Software Development</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>4</strong></p>
+            <ul id="attack" class="details">
+            <li><strong>Tartan Attack!</strong></li>
+            <li>Hall <strong>4</strong>, Booth <strong>C170</strong></li>
+            <li><img src="images/morgan.png" alt="Morgan" />Tartan Attack! was founded in 1995 by Kentigern Ridell. We are most known for its release of the legendary game Attack of the Killer Tartans.  </li>
+            <li><a class="foundTartan" id="found-attack" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+
+         <li id="vendor-laing"><h3>C180</h3>
+           <img src="images/napier.png" alt="Napier" />
+          <p><strong>Laing Security Group</strong></p>
+          <p>Category: <strong>Software Development</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>2</strong></p>
+            <ul id="laing" class="details">
+            <li><strong>Laing Security Group</strong></li>
+            <li>Hall <strong>2</strong>, Booth <strong>C180</strong></li>
+            <li><img src="images/napier.png" alt="Napier" />Formed by recognized security industry leaders with proven track records, Laing Security Group, Inc. is an information security consulting and training company specializing in application security design. We offer strategic and technical advice targeted at risk management and compliance needs.</li>
+            <li><a class="foundTartan" id="found-laing" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+
+          
+          <li id="vendor-nasmyth"><h3>C420</h3>
+            <img src="images/ramsay.png" alt="Ramsay" />
+          <p><strong>Nasmyth Worldwide</strong></p>
+          <p>Category: <strong>Software Development</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>3</strong></p>
+            <ul id="nasmyth" class="details">
+            <li><strong>Nasmyth Worldwide</strong></li>
+            <li>Hall <strong>3</strong>, Booth <strong>C420</strong></li>
+            <li><img src="images/ramsay.png" alt="Ramsay" />Nasmyth Worldwide (NW) is the premier independent integrator of enterprise security solutions. Founded in Edinburgh over 60 years ago, NW provides security expertise to premier organizations in our core markets of state and local government and healthcare.</li>
+            <li><a class="foundTartan" id="found-nasmyth" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+          
+          <li id="vendor-whole-haggis"><h3>C120</h3>
+            <img src="images/stuart_galloway.png" alt="Stuart of Galloway" />
+          <p><strong>The Whole Haggis</strong></p>
+          <p>Category: <strong>Food and Grocery</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>2</strong></p>
+            <ul id="whole-haggis" class="details">
+            <li><strong>The Whole Haggis</strong></li>
+            <li>Hall <strong>2</strong>, Booth <strong>C120</strong></li>
+            <li><img src="images/stuart_galloway.png" alt="Stuart of Galloway" />The Whole Haggis, or TWH as we are affectionately known, is one of the 75 largest grocery chains in the Scottland and is Scotland’s largest independent grocer.</li>
+            <li><a class="foundTartan" id="found-whole-haggis" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+          
+          <li id="vendor-greyfriar"><h3>C320</h3>
+            <img src="images/sutherland.png" alt="Sutherland" />
+          <p><strong>Greyfriar’s Barber</strong></p>
+          <p>Category: <strong>Personal Care</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>1</strong></p>
+            <ul id="greyfriar" class="details">
+            <li><strong>Greyfriar’s Barber</strong></li>
+            <li>Hall <strong>1</strong>, Booth <strong>C320</strong></li>
+            <li><img src="images/sutherland.png" alt="Sutherland" />Keeping all of Edinburgh perfectly coiffed since 1872.</li>
+            <li><a class="foundTartan" id="found-greyfriar" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+                   
+        <li id="vendor-bagpipes"><h3>C350</h3>
+        <img src="images/taylor.png" alt="Taylor" />
+          <p><strong>Bagpipes R Us</strong></p>
+          <p>Category: <strong>Musical Instrument Sales and Instruction</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>4</strong></p>
+            <ul id="bagpipes" class="details">
+            <li><strong>Bagpipes R Us</strong></li>
+            <li>Hall <strong>4</strong>, Booth <strong>C350</strong></li>
+            <li><img src="images/taylor.png" alt="Taylor" />Bagpipes ‘r’ Us has been in business since January 2004. We only sell instruments and reeds that I am willing to play or use with my students. </li>
+            <li><a class="foundTartan" id="found-bagpipes" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+                            
+        <li id="vendor-kingdom-kilts"><h3>C240</h3>
+        <img src="images/wallace.png" alt="Wallace" />
+          <p><strong>Kingdom of Kilts</strong></p>
+          <p>Category: <strong>Apparel</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>2</strong></p>
+            <ul id="kingdom-kilts" class="details">
+            <li><strong>Kingdom of Kilts</strong></li>
+            <li>Hall <strong>2</strong>, Booth <strong>C240</strong></li>
+            <li><img src="images/wallace.png" alt="Wallace" />We sell the finest kilts in all of Scotland. Our kilts have been worn by celebrities, politicians and even inspired Jean Paul Gaultier’s famous 2001Scottish collection. </li>
+            <li><a class="foundTartan" id="found-kingdom-kilts" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+      
+        <li id="vendor-piping-hot"><h3>C140</h3>
+        <img src="images/watson.png" alt="Watson" />
+          <p><strong>Piping Hot Bagpipe Lessons</strong></p>
+          <p>Category: <strong>Musical Instrument Sales and Instruction</strong></p>
+          
+          <p class="ui-li-aside">Hall <strong>3</strong></p>
+            <ul id="piping-hot" class="details">
+            <li><strong>Piping Hot Bagpipe Lessons</strong></li>
+            <li>Hall <strong>3</strong>, Booth <strong>C140</strong></li>
+            <li><img src="images/watson.png" alt="Watson" />The Bagpipes have been used for centuries to inspire warriors, welcome royalty, mourn the dearly departed, celebrate weddings, and bring distinction to virtually any other event. Learn from the finest instructors in all of Scotland. Beginners are welcome!. </li>
+            <li><a class="foundTartan" id="found-piping-hot" data-role="button">I found it!</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div> <!-- /content -->
+    </div> <!-- /page -->
+
+  </body>
+</html>
