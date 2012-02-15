@@ -7,7 +7,7 @@
     $.mobile.page.prototype.options.addBackBtn = true;
   });
 
-  function initPhoneGap() {
+  var initPhoneGap = function() {
     if (!navigator.device || !navigator.device.capture) { return; }
     imageCaptureSupported = true;
     // Hide back button on native Android via CSS class
@@ -16,7 +16,7 @@
     }
   };
   
-  initDevice = function() {
+  var initDevice = function() {
     // If browser supports localStorage
     if (typeof(window.localStorage) == 'object') {
       // Add click handler for "I found it!" button
@@ -31,7 +31,7 @@
 
   // Refresh the interface to reflect the current state of tartans-found
   // Uses localStorage
-  refreshTartans = function() {
+  var refreshTartans = function() {
     // Refresh tartans display; check every nested list for changes
     $('ul.details').each(function() {
       var myID         = $(this).attr('id');
@@ -65,7 +65,7 @@
   };
   
   // Click handler for "I found it!" button
-  tartanFound = function(event) {
+  var tartanFound = function(event) {
     var tartanKey = $(event.currentTarget).attr('id');
     if(imageCaptureSupported) {
       // Go off and take a photo in supported browsers (hah) or
@@ -81,10 +81,10 @@
     }
   };
   // Error callback for captureImage
-  captureError = function(error) { console.log(error);  }
+  var captureError = function(error) { console.log(error);  }
 
   // Add a reset button so the user can start the hunt all over!
-  addResetButton = function() {
+  var addResetButton = function() {
     var $resetButton = $('<a></a>').attr('data-role','button').html('Start Over!');
     $resetButton.click(function() {
       localStorage.clear();

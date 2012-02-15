@@ -4,7 +4,7 @@
     $.mobile.page.prototype.options.addBackBtn = true;
   });
   
-  initDevice = function() {
+  var initDevice = function() {
     if (typeof(window.localStorage) == 'object') {
       $('.foundTartan').click(tartanFound);
       refreshTartans();
@@ -13,7 +13,7 @@
   };
   $(document).ready(initDevice);
 
-  refreshTartans = function() {
+  var refreshTartans = function() {
     $('ul.details').each(function() {
       var myID         = $(this).attr('id');
       var tartanKey    = 'found-' + myID;
@@ -28,13 +28,13 @@
     });
   };
   
-  tartanFound = function(event) {
+  var tartanFound = function(event) {
     var tartanKey = $(event.currentTarget).attr('id');
     localStorage.setItem(tartanKey, 'true');
     refreshTartans(); 
   };
 
-  addResetButton = function() {
+  var addResetButton = function() {
     var $resetButton = $('<a></a>').attr('data-role','button').html('Start Over!');
     $resetButton.click(function() {
       localStorage.clear();

@@ -4,16 +4,16 @@
     $.mobile.page.prototype.options.addBackBtn = true;
   });
   
-  initDevice = function() {
+  var initDevice = function() {
 
   };
   $(document).ready(initDevice);
   
-  tartanFound = function(event) {
+  var tartanFound = function(event) {
 
   };
 
-  addResetButton = function() {
+  var addResetButton = function() {
 
   };
 })();
